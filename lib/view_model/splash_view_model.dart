@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:frontend/model/currentUser_model.dart';
 import 'package:frontend/view_model/auth_view_Model.dart';

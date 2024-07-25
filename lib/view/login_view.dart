@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:frontend/res/components/round_button.dart';
 import 'package:frontend/utils/routes/routesNames.dart';
 import 'package:frontend/utils/utils.dart';
@@ -44,7 +43,7 @@ class _LoginViewState extends State<LoginView> {
           TextFormField(
               controller: emailController,
               focusNode: emailFocus,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Email',
                 prefixIcon: Icon(Icons.email),
               ),
@@ -96,12 +95,12 @@ class _LoginViewState extends State<LoginView> {
                   await loginViewModel.loginUser(user, context);
                 }
               }),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           InkWell(
             onTap: () => Navigator.pushNamed(context, RoutesName.register),
-            child: Text('Don\'t have an account?',
+            child: const Text('Don\'t have an account?',
                 style: TextStyle(
                   fontSize: 20,
                   color: Color.fromARGB(255, 42, 179, 243),

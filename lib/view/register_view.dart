@@ -52,7 +52,7 @@ class _RegisterViewState extends State<RegisterView> {
           TextFormField(
               controller: nameController,
               focusNode: nameFocus,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Full Name',
                 prefixIcon: Icon(Icons.person),
               ),
@@ -62,7 +62,7 @@ class _RegisterViewState extends State<RegisterView> {
           TextFormField(
               controller: emailController,
               focusNode: emailFocus,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Email',
                 prefixIcon: Icon(Icons.email),
               ),
@@ -77,7 +77,7 @@ class _RegisterViewState extends State<RegisterView> {
                 focusNode: passwordFocus,
                 decoration: InputDecoration(
                   hintText: 'Password',
-                  prefixIcon: Icon(Icons.password),
+                  prefixIcon: const Icon(Icons.password),
                   suffixIcon: IconButton(
                     icon: Icon(obsecurePass.value
                         ? Icons.visibility_off
@@ -117,12 +117,12 @@ class _RegisterViewState extends State<RegisterView> {
                   await authViewModel.registerUser(user, context);
                 }
               }),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           InkWell(
             onTap: () => Navigator.pushNamed(context, RoutesName.login),
-            child: Text('Already have an account? Login',
+            child: const Text('Already have an account? Login',
                 style: TextStyle(
                   fontSize: 20,
                   color: Color.fromARGB(255, 42, 179, 243),
