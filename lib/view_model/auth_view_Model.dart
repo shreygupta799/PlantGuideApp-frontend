@@ -26,14 +26,15 @@ class AuthViewModel extends ChangeNotifier {
     if (response.statusCode == 200) {
       Fluttertoast.showToast(
           msg: 'Registered Successfully', toastLength: Toast.LENGTH_SHORT);
+      setloading(false);
       Navigator.pushNamed(context, RoutesName.login);
 
-      setloading(false);
       print('User registered successfully');
     } else if (response.statusCode == 409) {
       setloading(false);
       Fluttertoast.showToast(
           msg: 'User already exists', toastLength: Toast.LENGTH_SHORT);
+      Navigator.pushNamed(context, RoutesName.login);
       print('User already exists');
     } else {
       setloading(false);
