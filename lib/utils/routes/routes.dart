@@ -3,6 +3,8 @@ import 'package:frontend/res/components/navigation_bar.dart';
 import 'package:frontend/utils/routes/routesNames.dart';
 import 'package:frontend/view/home_view.dart';
 import 'package:frontend/view/login_view.dart';
+import 'package:frontend/view/myPlant_view.dart';
+import 'package:frontend/view/plantDetails_view.dart';
 import 'package:frontend/view/register_view.dart';
 import 'package:frontend/view/splash_view.dart';
 
@@ -17,9 +19,9 @@ class Routes {
         return MaterialPageRoute(builder: (constext) => const HomeView());
       case RoutesName.splash:
         return MaterialPageRoute(builder: (constext) => const SplashView());
-      case RoutesName.navigationBar:
-        return MaterialPageRoute(
-            builder: (context) => const AppNavigationBar());
+      case RoutesName.myPlant:
+        return MaterialPageRoute(builder: (constext) => const MyplantView());
+
       default:
         return MaterialPageRoute(
             builder: (context) => Scaffold(

@@ -48,7 +48,7 @@ class LoginViewModel extends ChangeNotifier {
       print('User Login successfully');
       Fluttertoast.showToast(
           msg: 'User Login successfully', toastLength: Toast.LENGTH_SHORT);
-      Navigator.pushNamed(context, RoutesName.home);
+      Navigator.pushNamed(context, RoutesName.splash);
     } else {
       setloading(false);
       print('Failed to Login user');

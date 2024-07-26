@@ -3,6 +3,7 @@ import 'package:frontend/res/colors.dart';
 import 'package:frontend/view_model/plant_view_model.dart';
 
 class SearchView extends StatefulWidget {
+  
   const SearchView({super.key});
 
   @override
