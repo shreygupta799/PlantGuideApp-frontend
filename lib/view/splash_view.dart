@@ -27,7 +27,7 @@ class _SplashViewState extends State<SplashView> {
     if (token != null) {
       final res = await splashProvider.getCurrentUser(token);
       if (res != null) {
-        Navigator.pushNamed(context, RoutesName.home);
+        Navigator.pushNamed(context, RoutesName.myPlant);
       } else {
         Navigator.pushNamed(context, RoutesName.login);
       }

@@ -11,8 +11,8 @@ class CurrentUserModel {
   factory CurrentUserModel.fromJson(Map<String, dynamic> json) {
     return CurrentUserModel(
       username: json['username'],
-      savedPlant: json['saved_plant'] != null
-          ? List<String>.from(json['saved_plant'])
+      savedPlant: json['saved_plants'] != null
+          ? List<String>.from(json['saved_plants'])
           : null,
       password: json['password'],
       fullName: json['full_name'],
@@ -23,7 +23,7 @@ class CurrentUserModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['username'] = this.username;
     if (this.savedPlant != null) {
-      data['saved_plant'] = this.savedPlant;
+      data['saved_plants'] = this.savedPlant;
     }
     data['password'] = this.password;
     data['full_name'] = this.fullName;
