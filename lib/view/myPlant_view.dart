@@ -61,7 +61,8 @@ class _MyplantViewState extends State<MyplantView> {
           Navigator.pushNamed(context, RoutesName.home);
           break;
         case 1:
-          Navigator.pushNamed(context, '/search'); // Add search screen route
+          Navigator.pushNamed(
+              context, RoutesName.search); // Add search screen route
           break;
         case 2:
           Navigator.pushNamed(context, RoutesName.myPlant);
@@ -88,6 +89,11 @@ class _MyplantViewState extends State<MyplantView> {
             onPressed: () => refresh(),
           ),
         ],
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          color: Colors.white,
+          onPressed: () => Navigator.pushNamed(context, RoutesName.home),
+        ),
       ),
       body: _savedPlants.isNotEmpty
           ? Column(
