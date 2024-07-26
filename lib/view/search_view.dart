@@ -60,8 +60,10 @@ class _SearchViewState extends State<SearchView> {
             ),
           ),
 
-          TextButton(onPressed: (){
-           plant =  plantViewModel.getPlantsDetails(_searchController.text);
+          TextButton(onPressed: () {
+           setState(() async {
+            plant = await plantViewModel.getPlantsDetails(_searchController.text); 
+           });
           }, child: plantViewModel.loading ? const CircularProgressIndicator() : const Text('search')),
           
           // ChangeNotifierProvider<PlantViewModel>(

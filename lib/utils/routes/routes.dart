@@ -21,6 +21,9 @@ class Routes {
         return MaterialPageRoute(builder: (constext) => const SplashView());
       case RoutesName.myPlant:
         return MaterialPageRoute(builder: (constext) => const MyplantView());
+      case RoutesName.navigationBar:
+        return MaterialPageRoute(
+            builder: (context) => const AppNavigationBar());  
 
       default:
         return MaterialPageRoute(
