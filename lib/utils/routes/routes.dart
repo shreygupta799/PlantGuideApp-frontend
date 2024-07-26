@@ -5,6 +5,7 @@ import 'package:frontend/view/login_view.dart';
 import 'package:frontend/view/myPlant_view.dart';
 import 'package:frontend/view/plantDetails_view.dart';
 import 'package:frontend/view/register_view.dart';
+import 'package:frontend/view/search_view.dart';
 import 'package:frontend/view/splash_view.dart';
 
 class Routes {
@@ -20,7 +21,8 @@ class Routes {
         return MaterialPageRoute(builder: (constext) => const SplashView());
       case RoutesName.myPlant:
         return MaterialPageRoute(builder: (constext) => const MyplantView());
-
+      case RoutesName.search:
+        return MaterialPageRoute(builder: (constext) => const SearchView());
       default:
         return MaterialPageRoute(
             builder: (context) => Scaffold(

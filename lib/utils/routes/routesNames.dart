@@ -5,4 +5,5 @@ class RoutesName {
   static const String register = 'register_screen';
   static const String myPlant = 'mtPlant_screen';
   static const String plantDetails = 'plantDetails_screen';
+  static const String search = 'search_screen';
 }

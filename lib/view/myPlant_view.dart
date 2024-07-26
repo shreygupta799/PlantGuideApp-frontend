@@ -16,6 +16,7 @@ class MyplantView extends StatefulWidget {
 
 class _MyplantViewState extends State<MyplantView> {
   List<String> _savedPlants = [];
+  int _selectedIndex = 2;
 
   @override
   void initState() {
@@ -42,18 +43,31 @@ class _MyplantViewState extends State<MyplantView> {
     Navigator.pushNamed(context, RoutesName.login);
   }
 
-  void _onNavItemTapped(BuildContext context, int index) {
-    switch (index) {
-      case 0:
-        Navigator.pushNamed(context, RoutesName.home);
-        break;
-      case 1:
-        Navigator.pushNamed(context, '/search'); // Add search screen route
-        break;
-      case 2:
-        Navigator.pushNamed(context, '/my-plants');
-        break;
-    }
+  Future<void> refresh() async {
+    final loginProvider = context.read<LoginViewModel>();
+    final splashProvider = context.read<SplashViewModel>();
+    final token = await loginProvider.loadToken();
+    await splashProvider.getCurrentUser(token);
+    fetchPlant();
+  }
+
+  void _onNavItemTapped(int index) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        _selectedIndex = index;
+      });
+      switch (index) {
+        case 0:
+          Navigator.pushNamed(context, RoutesName.home);
+          break;
+        case 1:
+          Navigator.pushNamed(context, '/search'); // Add search screen route
+          break;
+        case 2:
+          Navigator.pushNamed(context, RoutesName.myPlant);
+          break;
+      }
+    });
   }
 
   @override
@@ -69,9 +83,9 @@ class _MyplantViewState extends State<MyplantView> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: Icon(Icons.refresh),
             color: Colors.white,
-            onPressed: () => _logout(context),
+            onPressed: () => refresh(),
           ),
         ],
       ),
@@ -125,19 +139,24 @@ class _MyplantViewState extends State<MyplantView> {
           : Center(
               child: Text('You have no saved plants'),
             ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.refresh),
-              onPressed: () {
-                // Call your method to refresh the data
-                setState(() {});
-              },
-            ),
-          ],
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.save),
+            label: 'Save',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onNavItemTapped,
       ),
     );
   }
